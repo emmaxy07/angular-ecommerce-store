@@ -1,0 +1,33 @@
+<div class="modal" *ngIf="isOpen">
+    <table>
+        <!-- <thead> -->
+            <tr>
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        <!-- </thead> -->
+        <!-- <tbody> -->
+    <tr class="items" *ngFor="let item of items">
+        <td><img src={{item.image}} width={{100}} height={{100}} /></td>
+        <td><h5><b>{{item.title}}</b></h5></td>
+        <td><h5><b>${{item.price}}</b></h5></td>
+        <td><div class="quantity"><b>{{item.quantity}}</b></div></td>
+        <td>
+            <div class="modal-action">
+            <button (click)="increase(item)"><b>+</b></button>
+            <button (click)="decrease(item)"><b>-</b></button>
+            </div>
+        </td>
+    </tr>
+    <!-- </tbody> -->
+    </table>
+        <br>
+    <div class="checkout-btn">
+     <button (click)="goToCheckout()">Go to Checkout</button>
+     </div>
+     <br>
+    <button (click)="closeModal()">Close Modal</button>
+</div>
+

@@ -1,0 +1,20 @@
+.username{
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 50%;
+}
+
+.password{
+    border-bottom: 1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 50%;
+}
+
+.invalid-feedback{
+    color: red;
+    font-size: small;
+}

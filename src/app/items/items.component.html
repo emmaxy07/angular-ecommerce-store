@@ -1,0 +1,10 @@
+
+        <div className='collections-overview'>
+    <ul class="item">
+    <div *ngFor="let item of filteredItems">
+        <img src={{item.image}} width={{100}} height={{100}} />
+        <h5><b>{{item.title}}</b></h5>
+        <h5><b>${{item.price}}</b></h5>
+        <button (click)="addToCart.emit(item)" class="cart-btn">Add to Cart</button>
+    </div>
+</ul>

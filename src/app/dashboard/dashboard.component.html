@@ -1,0 +1,22 @@
+<h2 class="header">Shopping Items</h2>
+<br>
+
+<app-modal [items]="cartItems" *ngIf="modalOpen"></app-modal>
+<app-cart (openModal)="openModal()" [count]="cartCount"></app-cart>
+ <div>
+            <input
+            [(ngModel)]="searchTerm"
+             [ngStyle]="{
+            borderRadius: '10px',
+            padding: '10px',
+            width: '100%',
+            border: '2px solid lightgray',
+            outline: 'none'}"
+            placeholder="Search for items"
+            (input)="searchItems()"
+            />
+        </div>
+            <br>
+<app-items [filteredItems]="filteredItems" (addToCart)="addToCart($event)"></app-items>
+
+

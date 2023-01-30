@@ -1,0 +1,15 @@
+.item {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.cart-btn {
+    margin-left: 10px;
+    border: none;
+    height: 35px;
+    width: 60%;
+    color: white;
+    background-color: coral;
+    cursor: pointer;
+    border-radius: 5px;
+}

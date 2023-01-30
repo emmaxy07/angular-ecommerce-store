@@ -1,0 +1,6 @@
+<p>Checkout Page</p>
+<div *ngFor="let item of items">
+    <img src={{item.image}} width={{100}} height={{100}}>
+    <p>{{item.price}} x {{item.quantity}}</p>
+</div>
+<p>Total Price: ${{totalPrice.toFixed(2)}}</p>
