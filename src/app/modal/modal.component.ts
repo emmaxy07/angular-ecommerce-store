@@ -10,6 +10,7 @@ export class ModalComponent implements OnInit {
 
   @Input() items: [];
   isOpen = true;
+  @Input() count: number;
   // cartItems: [];
   constructor(private router: Router) { }
 
@@ -30,6 +31,20 @@ export class ModalComponent implements OnInit {
     this.router.navigate(['checkout'], {
       queryParams: { items: JSON.stringify(this.items) }
     });
+  }
+
+  removeFromCart() {
+    this.items = [];
+    this.count = 0;
+
+    localStorage.setItem("cartItems", JSON.stringify([]));
+    localStorage.setItem("cartCount", this.count.toString());
+  }
+
+  clearCart() {
+    this.items = [];
+    this.closeModal();
+    this.removeFromCart();
   }
 
   closeModal() {
