@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
       .subscribe((response: any) => {
         if (this.loginForm.valid) {
           this.router.navigate(['/dashboard']);
-          console.log(response);
       }
     })
   }

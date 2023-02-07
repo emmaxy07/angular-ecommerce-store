@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   modalOpen = false;
   cartItems: any[];
   searchTerm: string;
+  isLoading: boolean = false;
 
   constructor(private productService: ProductService) { }
 
@@ -21,9 +22,11 @@ export class DashboardComponent implements OnInit {
     this.cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     this.cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
 
+      this.isLoading = true;
     this.productService.getItems().subscribe((item: any) => {
       this.items = item;
       this.filteredItems = item;
+      this.isLoading = false;
     })
   }
 

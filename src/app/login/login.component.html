@@ -1,10 +1,10 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
+<form [formGroup]="loginForm" class="login" (ngSubmit)="onSubmit($event)">
 <div class="mb-1">
 <h1>Login</h1>
 </div>
 <div class="mt-1">
 <h4>Username</h4>
-<input [ngClass]="{ 'is-invalid': loginForm.get('username').invalid && loginForm.get('username').touched}" required minlength="3" formControlName="username" (click)="onEnterInputField($event.target)" class="username" name="username" placeholder="Type your username" />
+<input [width]="500" [ngClass]="{ 'is-invalid': loginForm.get('username').invalid && loginForm.get('username').touched}" required minlength="3" formControlName="username" (click)="onEnterInputField($event.target)" class="username" name="username" placeholder="Type your username" />
 <br>
 <div *ngIf="loginForm.get('username').invalid && loginForm.get('username').touched" class="invalid-feedback">
     <div *ngIf="loginForm.get('username').errors.required">Username is required</div>
@@ -22,6 +22,6 @@
 </div>
 
 <div>
-    <button [disabled]="loginForm.invalid" type="submit">Submit</button>
+    <button class="submit" [disabled]="loginForm.invalid" type="submit">Submit</button>
 </div>
 </form>

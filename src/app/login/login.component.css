@@ -18,3 +18,20 @@
     color: red;
     font-size: small;
 }
+
+.login{
+    margin-top: 200px;
+    padding-left: 100px;
+}
+
+.submit{
+    background-color: coral;
+    color: black;
+    font-size: large;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
