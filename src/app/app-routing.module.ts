@@ -1,3 +1,4 @@
+import { ChatbotComponent } from './chatbot/chatbot.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
 import { RecipesComponent } from './recipes/recipes.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   { path: 'recipes', component: RecipesComponent },
   {path: '', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent },
-  {path: 'checkout', component: CheckoutComponent}
+  { path: 'checkout', component: CheckoutComponent },
+  {path: 'chatbot', component: ChatbotComponent}
 ];
 
 @NgModule({

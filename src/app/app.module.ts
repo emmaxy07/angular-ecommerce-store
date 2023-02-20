@@ -16,7 +16,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CartComponent } from './cart/cart.component';
 import { ItemsComponent } from './items/items.component';
 import { ModalComponent } from './modal/modal.component';
-import { CheckoutComponent } from './checkout/checkout.component'
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ChatbotComponent } from './chatbot/chatbot.component'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CheckoutComponent } from './checkout/checkout.component'
     ItemsComponent,
     ModalComponent,
     CheckoutComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,

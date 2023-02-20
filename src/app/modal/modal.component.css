@@ -42,6 +42,11 @@
     background-color: white;
 }
 
+.action-btns{
+    display: flex;
+    gap: 5px;
+}
+
 .modal .checkout-btn button{
     background-color: white;
     color: black;

@@ -1,0 +1,11 @@
+
+<div>
+    <input [(ngModel)]="inputMessage" placeholder="Type your question here" />
+    <button (click)="sendMessage()">Send</button>
+</div>
+
+<div>
+    <div *ngFor="let chat of chatHistory">
+        <p [ngClass]="chat.sender">{{chat.message}}</p>
+    </div>
+</div>

@@ -11,6 +11,7 @@ export class ModalComponent implements OnInit {
   @Input() items: [];
   isOpen = true;
   @Input() count: number;
+
   // cartItems: [];
   constructor(private router: Router) { }
 
@@ -43,8 +44,7 @@ export class ModalComponent implements OnInit {
 
   clearCart() {
     this.items = [];
-    this.closeModal();
-    this.removeFromCart();
+    // this.removeFromCart.emit();
   }
 
   closeModal() {
