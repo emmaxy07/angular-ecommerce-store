@@ -24,8 +24,11 @@ export class ChatbotComponent implements OnInit {
     let response: string;
 
     if (this.inputMessage.includes('price')) {
-      let productName = this.inputMessage.split(' ')[0];
-      let product = this.products.find(p => p.title === productName);
+      let productName = this.inputMessage.split('')[0];
+      console.log(productName);
+      let product = this.products.find(p => {
+      return  p.title.includes(productName)
+      });
       if (product) {
         response = `${product.title} costs ${product.price}`;
       } else {
@@ -33,7 +36,7 @@ export class ChatbotComponent implements OnInit {
       }
     } else if (this.inputMessage.includes('description')) {
         let productName = this.inputMessage.split(' ')[0];
-        let product = this.products.find(p => p.title === productName);
+        let product = this.products.find(p => p.title.includes(productName));
         if (product) {
           response = `${product.title}: ${product.description}`;
         } else {
