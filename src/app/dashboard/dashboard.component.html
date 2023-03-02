@@ -1,7 +1,7 @@
 <h2 class="header">Shopping Items</h2>
 <br>
 
-<app-modal [items]="cartItems" [count]="cartCount" *ngIf="modalOpen"></app-modal>
+<app-modal [items]="cartItems" [count]="cartCount" *ngIf="modalOpen" (cartCountChange)="onCartCountChange($event)"></app-modal>
 <app-cart (openModal)="openModal()" [count]="cartCount"></app-cart>
  <div>
             <input

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() items: [];
+  @Input() items: any[];
   isOpen = true;
   @Input() count: number;
+  @Output() cartCountChange: EventEmitter<number> = new EventEmitter<number>();
 
-  // cartItems: [];
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -43,9 +43,13 @@ export class ModalComponent implements OnInit {
   }
 
   clearCart() {
-    this.items = [];
-    // this.removeFromCart.emit();
-  }
+    let cartItems = [];
+    let cartCount = 0;
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cartCount", cartCount.toString());
+    this.items = cartItems;
+    this.cartCountChange.emit(0);
+    this.closeModal();  }
 
   closeModal() {
     this.isOpen = false;

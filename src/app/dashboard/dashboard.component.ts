@@ -1,5 +1,6 @@
 import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
+import { count } from 'console';
 
 @Component({
   selector: 'app-dashboard',
@@ -42,11 +43,6 @@ export class DashboardComponent implements OnInit {
     localStorage.setItem("cartCount", this.cartCount.toString());
   }
 
-  removeFromCart() {
-    
-  }
-  
-
   openModal() {
     this.modalOpen = !this.modalOpen;
   }
@@ -58,6 +54,9 @@ export class DashboardComponent implements OnInit {
       return this.filteredItems = this.items.filter(item =>
         item.title.toLowerCase().includes(this.searchTerm.toLowerCase()));  
     }
+   }
+  
+  onCartCountChange(count: number) {
+    this.cartCount = count
   }
-
 }
