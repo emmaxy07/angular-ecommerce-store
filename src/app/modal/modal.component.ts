@@ -28,9 +28,14 @@ export class ModalComponent implements OnInit {
     }
   }
 
+
   goToCheckout() {
     this.router.navigate(['checkout'], {
-      queryParams: { items: JSON.stringify(this.items) }
+      queryParams: {
+        items: JSON.stringify(this.items.map(item => ({
+          id: item.id,
+          price: item.price
+      }))) }
     });
   }
 
@@ -49,7 +54,8 @@ export class ModalComponent implements OnInit {
     localStorage.setItem("cartCount", cartCount.toString());
     this.items = cartItems;
     this.cartCountChange.emit(0);
-    this.closeModal();  }
+    this.closeModal();
+  }
 
   closeModal() {
     this.isOpen = false;

@@ -20,15 +20,25 @@ export class CheckoutComponent implements OnInit {
   }
 
   calculateTotal() {
-    let total = 0;
-    if (this.items && this.items.length) {
-      for (let item of this.items) {
-        total += item.price * item.quantity;
-      }
-      return total;
+  const params = new URLSearchParams(window.location.search);
+  const items = params.get('items');
+  const itemsArray = JSON.parse(items);
+  let total = 0;
+  
+  if (this.items && this.items.length) {
+    for (let item of this.items) {
+      console.log(item.quantity)
+      const quantity = item.quantity ? item.quantity : 1;
+      total += item.price * quantity;
     }
   }
-
- 
-
+  
+  if (itemsArray && itemsArray.length) {
+    for (let item of itemsArray) {
+      total += item.price;
+    }
+  }
+  
+  return total;
+}
 }

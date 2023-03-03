@@ -1,13 +1,13 @@
 import { ProductService } from './../product.service';
-import { Component, OnInit } from '@angular/core';
-import { count } from 'console';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   ProductService: any;
   items = [];
   filteredItems = [];
@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   cartItems: any[];
   searchTerm: string;
   isLoading: boolean = false;
+  productSubscription: Subscription;
 
   constructor(private productService: ProductService) { }
 
@@ -23,11 +24,11 @@ export class DashboardComponent implements OnInit {
     this.cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     this.cartCount = parseInt(localStorage.getItem("cartCount")) || 0;
 
-      this.isLoading = true;
-    this.productService.getItems().subscribe((item: any) => {
-      this.items = item;
-      this.filteredItems = item;
-      this.isLoading = false;
+    this.isLoading = true;
+   this.productSubscription = this.productService.getItems().subscribe((item: any) => {
+    this.items = item;
+    this.filteredItems = item;
+    this.isLoading = false;
     })
   }
 
@@ -57,6 +58,10 @@ export class DashboardComponent implements OnInit {
    }
   
   onCartCountChange(count: number) {
-    this.cartCount = count
+    this.cartCount = count;
+  }
+
+  ngOnDestroy() {
+    this.productSubscription.unsubscribe();
   }
 }
