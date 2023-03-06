@@ -1,7 +1,7 @@
 
         <div className='collections-overview'>
     <ul class="item">
-    <div *ngFor="let item of filteredItems">
+    <div *ngFor="let item of filteredItems" (click)="onItemClicked(item)">
         <img src={{item.image}} width={{100}} height={{100}} />
         <h5><b>{{item.title}}</b></h5>
         <h5><b>${{item.price}}</b></h5>

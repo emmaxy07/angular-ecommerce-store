@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { ProductService } from './../product.service';
 
@@ -12,13 +13,15 @@ export class ItemsComponent implements OnInit {
   @Output() addToCart = new EventEmitter<any>();
   searchTerm: string;
 
-  constructor() { 
+  constructor(private router: Router) { 
    
   }
 
   ngOnInit(): void {
   }
 
- 
+  onItemClicked(item: { id: any; }) {
+    this.router.navigate(['/item', item.id]);
+  }
 
 }

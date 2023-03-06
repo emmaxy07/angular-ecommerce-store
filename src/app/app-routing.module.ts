@@ -1,3 +1,7 @@
+import { ProductComponent } from './product/product.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { AuthGuard } from './auth-guard.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LoginComponent } from './login/login.component';
@@ -12,7 +16,10 @@ const routes: Routes = [
   {path: '', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'checkout', component: CheckoutComponent },
-  {path: 'chatbot', component: ChatbotComponent}
+  { path: 'chatbot', component: ChatbotComponent },
+  {path: 'item/:id', component: ProductComponent},
+  { path: 'not-found', component: ErrorpageComponent, data: {message: 'Page Not Found'} },
+  { path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({

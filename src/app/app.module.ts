@@ -1,3 +1,5 @@
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth-guard.service';
 import { HeaderComponent } from './header/header.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +19,10 @@ import { CartComponent } from './cart/cart.component';
 import { ItemsComponent } from './items/items.component';
 import { ModalComponent } from './modal/modal.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { ChatbotComponent } from './chatbot/chatbot.component'
+import { ChatbotComponent } from './chatbot/chatbot.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
+import { ProductComponent } from './product/product.component'
 
 @NgModule({
   declarations: [
@@ -36,6 +41,9 @@ import { ChatbotComponent } from './chatbot/chatbot.component'
     ModalComponent,
     CheckoutComponent,
     ChatbotComponent,
+    PageNotFoundComponent,
+    ErrorpageComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,7 @@ import { ChatbotComponent } from './chatbot/chatbot.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
