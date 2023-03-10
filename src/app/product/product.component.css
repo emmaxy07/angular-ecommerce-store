@@ -1,0 +1,7 @@
+.product-container{
+    display: flex;
+}
+
+.cart-icon{
+    margin-top: 20px;
+}

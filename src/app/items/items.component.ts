@@ -9,7 +9,7 @@ import { ProductService } from './../product.service';
   styleUrls: ['./items.component.css']
 })
 export class ItemsComponent implements OnInit {
-  @Input() filteredItems: {title: string, image: string, price: number, }[];
+  @Input() filteredItems: {title: string, image: string, price: number }[];
   @Output() addToCart = new EventEmitter<any>();
   searchTerm: string;
 

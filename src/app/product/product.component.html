@@ -1,7 +1,12 @@
+<div class="product-container">
 <div *ngIf="item">
     <h2>{{item.title}}</h2>
     <img [src]="item.image" alt="{{item.title}}" width="300" height="300"/>
     <h4>{{item.description}}</h4>
     <p>${{item.price}}</p>
-    <button (click)="addToCart(item)">Add to Cart</button>
+    <button appCartBtn [ngStyle]="{'width':'20%'}" (click)="addToCart(item)">Add to Cart</button>
 </div>
+
+<app-cart class="cart-icon"></app-cart>
+</div>
+<!-- <app-cart (openModal)="openModal()" [count]="cartCount"></app-cart> -->

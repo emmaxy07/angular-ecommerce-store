@@ -22,7 +22,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ErrorpageComponent } from './errorpage/errorpage.component';
-import { ProductComponent } from './product/product.component'
+import { ProductComponent } from './product/product.component';
+import { CartBtnDirective } from './Directives/cart-btn.directive'
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ProductComponent } from './product/product.component'
     PageNotFoundComponent,
     ErrorpageComponent,
     ProductComponent,
+    CartBtnDirective,
   ],
   imports: [
     BrowserModule,

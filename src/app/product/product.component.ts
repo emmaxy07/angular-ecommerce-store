@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { ProductService } from '../product.service';
 export class ProductComponent implements OnInit {
   item: any;
   id: number;
+  @Input() cartCount: number;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
